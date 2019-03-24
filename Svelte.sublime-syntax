@@ -725,7 +725,7 @@ contexts:
       push: embed-scope
 
   style-lang-attribute:
-    - match: (?i)\btype\b
+    - match: (?i)\btype|lang\b
       scope: meta.attribute-with-value.html entity.other.attribute-name.html
       set:
         - meta_content_scope: meta.tag.style.begin.html meta.attribute-with-value.html
@@ -738,7 +738,7 @@ contexts:
           set: style-css
 
   style-lang-decider:
-    - match: (?i)(?=text/scss(?!{unquoted_attribute_value})|\'text/scss\'|"text/scss")
+    - match: (?i)(?=text/scss(?!{unquoted_attribute_value})|\'text/scss\'|"text/scss"|scss|"scss")
       set:
         -   - meta_content_scope: meta.tag.style.begin.html
             - include: style-common
